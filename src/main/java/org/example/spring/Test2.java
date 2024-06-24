@@ -1,13 +1,14 @@
 package org.example.spring;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Test2 {
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context =
-                new ClassPathXmlApplicationContext("applicationContext2.xml");
+        AnnotationConfigApplicationContext context =
+                new AnnotationConfigApplicationContext(Config2.class);
 
-        Person person = context.getBean("person", Person.class);
+        Person person = context.getBean("personBean", Person.class);
         person.getPet().say();
+
     }
 }
